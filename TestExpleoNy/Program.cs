@@ -10,17 +10,10 @@ namespace TestExpleoNy
 
             Console.WriteLine("Write a mathematical expression");
 
-            //Calculator calculator = new Calculator();
-            //calculator.answ = Console.ReadLine();
-
             Calculator.answ = Console.ReadLine();
 
             Console.WriteLine(Calculator.CalculatePrint(Calculator.answ));
-            //if (Calculator.Operators(Calculator.StringOperator) == "+")
-            //{
-            //    Console.WriteLine(Calculator.Addition(Calculator.InputNumber1(Calculator.Input1), Calculator.InputNumber2(Calculator.Input2)));
-                
-            //}
+            
 
             
             

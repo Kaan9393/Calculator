@@ -10,27 +10,59 @@ namespace TestExpleoNy
 
             Console.WriteLine("Write a mathematical expression");
 
-            Calculator calculator = new Calculator();
-            calculator.answ = Console.ReadLine();
+            //Calculator calculator = new Calculator();
+            //calculator.answ = Console.ReadLine();
 
-            if (calculator.Operators(calculator.StringOperator) == "+")
-            {
-                calculator.Addition(calculator.Input1, calculator.Input2);
-            }
+            Calculator.answ = Console.ReadLine();
 
+            Console.WriteLine(Calculator.CalculatePrint(Calculator.answ));
+            //if (Calculator.Operators(Calculator.StringOperator) == "+")
+            //{
+            //    Console.WriteLine(Calculator.Addition(Calculator.InputNumber1(Calculator.Input1), Calculator.InputNumber2(Calculator.Input2)));
+                
+            //}
+
+            
+            
 
         }
     }
-    public class Calculator
+    public static class Calculator
     {
-        public string answ;
 
-        public string OpPropp { get; set; }
+        public static double CalculatePrint(string output)
+        {
+            if (Operators(StringOperator) == "+")
+            {
+                
+                return Addition(InputNumber1(Input1), InputNumber2(Input2));
+            }
 
-        public double Input1 { get; set; }
-        public double Input2 { get; set; }
+            else if (Operators(StringOperator) == "-")
+            {
 
-        public double InputNumber1(double num1)
+                return Subtraction(InputNumber1(Input1), InputNumber2(Input2));
+            }
+
+            else if (Operators(StringOperator) == "*")
+            {
+
+                return Multiplication(InputNumber1(Input1), InputNumber2(Input2));
+            }
+            else if (Operators(StringOperator) == "/")
+            {
+
+                return Division(InputNumber1(Input1), InputNumber2(Input2));
+            }
+
+            return 0;
+        }
+
+        public static string answ;
+
+        public static double Input1 { get; set; }
+       
+        public static double InputNumber1(double num1)
         {
             Match matchNumbers = Regex.Match(answ, @"([0-9]+)");
 
@@ -43,7 +75,9 @@ namespace TestExpleoNy
 
         }
 
-        public double InputNumber2(double num2)
+        public static double Input2 { get; set; }
+
+        public static double InputNumber2(double num2)
         {
 
             Match matchNumbers = Regex.Match(answ, @"([0-9]+)");
@@ -60,8 +94,8 @@ namespace TestExpleoNy
 
        
 
-        public string StringOperator { get; set; }
-        public string Operators(string operat)
+        public static string StringOperator { get; set; }
+        public static string Operators(string operat)
         {
             Match matchOp = Regex.Match(answ, @"([*+/-])");
 
@@ -74,13 +108,13 @@ namespace TestExpleoNy
         }
 
 
-        public double Addition(double item1, double item2)
+        public static double Addition(double item1, double item2)
         {
 
             return item1 + item2;
         }
 
-        public double Subtraction(double item1, double item2)
+        public static double Subtraction(double item1, double item2)
         {
             if (item1 > item2)
             {
@@ -92,12 +126,12 @@ namespace TestExpleoNy
             }
         }
 
-        public double Multiplication(double item1, double item2)
+        public static double Multiplication(double item1, double item2)
         {
             return item1 * item2;
         }
 
-        public double Division(double item1, double item2)
+        public static double Division(double item1, double item2)
         {
             return item1 / item2;
         }
